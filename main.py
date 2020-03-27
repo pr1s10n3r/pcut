@@ -2,6 +2,7 @@ import argparse
 import sys
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import utils  # .PdfReadError
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -65,3 +66,5 @@ if __name__ == '__main__':
             output_file.close()
     except FileNotFoundError:
         print('{}: file \"{}\" not found'.format(sys.argv[0], args.input))
+    except utils.PdfReadError:
+        print('{}: that is not a PDF!'.format(sys.argv[0]))
