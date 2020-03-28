@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 sys.exit(1)
 
             output_pdf = PdfFileWriter()
-            for i in range(args.start, args.end):
+            for i in range(args.start, args.end + 1):
                 page = file_reader.getPage(i)
                 output_pdf.addPage(page)
 
